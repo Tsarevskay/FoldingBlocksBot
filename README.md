@@ -13,7 +13,7 @@ The goal of this puzzle game is to unfold the blocks, i.e. to double them in siz
 
 ## Getting Started
 1. [Download](https://www.bluestacks.com/ru/index.html) a free emulator to run mobile applications on your computer.
-2. Launch the emulator and download the **Folding Blocks** game from the **Play Store**, turn off the Internet (to play without ads), then launch the game.
+2. Launch the emulator and download the **Folding Blocks** game from the **Play Store**, turn off the Internet (to play without ads), then launch the game. *Complete the first 2 training levels yourself.*
 3. Clone the repository or download and unzip the zip file for this repository.
 4. Open the terminal in the folder where the project is saved and enter the command: `$ pip install -r requirements.txt`.
 5. Run the file [main.py](https://github.com/Tsarevskay/FoldingBlocksBot/blob/main/main.py) and open the emulator with the game, if you want to stop code execution, press q on the keyboard.
