@@ -1,6 +1,10 @@
 # FoldingBlocksBot
 A bot for the mobile game [Folding Blocks](https://apps.apple.com/us/app/folding-blocks/id1459650728). A puzzle for mobile devices in which the player turns over pieces of different shapes to fill the entire field.
 
+<p align="center">
+  <img src="https://github.com/Tsarevskay/FoldingBlocksBot/blob/main/images/levels.gif" alt="Sublime's custom image"/>
+</p>
+
 ## The goal of the game
 The goal of this puzzle game is to unfold the blocks, i.e. to double them in size until there are no more empty spaces on the board.
 
