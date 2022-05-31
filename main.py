@@ -11,7 +11,7 @@ from swipe import select_direction
 
 time.sleep(2)
 start = tap_start_game((795, 835, 280, 50))
-time.sleep(2)
+time.sleep(1)
 
 while True:
     if keyboard.is_pressed('q'):
@@ -24,4 +24,4 @@ while True:
     res = select_direction(con, lst_colors_coord)
     time.sleep(2)
     result_tap = tap_start_game((795, 789, 280, 50))
-    time.sleep(2)
+    time.sleep(1)

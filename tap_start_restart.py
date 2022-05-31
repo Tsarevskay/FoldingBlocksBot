@@ -12,8 +12,8 @@ def tap_start_game(region: tuple[int, int, int, int]) -> bool:
     Returns:
         True if the buttons are found, False otherwise.
     """
-    screen_start = pyautogui.screenshot(os.path.join('../images', 'screenshot.png'), region=region)
-    img_path = '../images/screenshot.png'
+    screen_start = pyautogui.screenshot(os.path.join('images', 'screenshot.png'), region=region)
+    img_path = 'images/screenshot.png'
     reader = easyocr.Reader(['en'])
     result = reader.readtext(img_path)
     if result:

@@ -37,8 +37,8 @@ def marks_up_screenshot() -> list:
         The list of coordinates of all corners of squares in the screenshot.
     """
     time.sleep(2)
-    screen = pyautogui.screenshot(os.path.join('../images', 'screenshot.png'), region=(661, 225, 549, 625))
-    img = cv2.imread('../images/screenshot.png')
+    screen = pyautogui.screenshot(os.path.join('images', 'screenshot.png'), region=(661, 225, 549, 625))
+    img = cv2.imread('images/screenshot.png')
     gray = np.float32(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
     corners = np.int0(cv2.goodFeaturesToTrack(gray, 190, 0.007, 60))
     lst = []
@@ -49,7 +49,7 @@ def marks_up_screenshot() -> list:
         cv2.putText(img, xy, (x, y), cv2.FONT_HERSHEY_PLAIN,
                     1.0, (0, 0, 0), thickness=1)
         lst.append([x, y])
-    cv2.imwrite('../images/Corner.png', img)
+    cv2.imwrite('images/Corner.png', img)
     return lst
 
 
@@ -96,7 +96,7 @@ def get_matrix(x_origin: float, y_origin: float, half: float) -> tuple[list, dic
         A matrix consisting of the names of the colors of the squares that displays the shape on the screen, dictionary,
         where the key is the name of the color, the value is a tuple of the coordinates (x, y) of this square.
     """
-    img = Image.open('../images/screenshot.png')
+    img = Image.open('images/screenshot.png')
     x = x_origin
     y = y_origin
     lst_colors_coord = {}
@@ -140,7 +140,7 @@ def encodes_matrix(matrix_colors: list) -> tuple[list, dict]:
         matrix_colors: A list of lists with names of colors for squares.
 
     Returns:
-        dictionary, where the key is the name of the color, the value is the digit to which the color corresponds.
+        Dictionary, where the key is the name of the color, the value is the digit to which the color corresponds.
     """
     matrix_colors = np.array(matrix_colors)
     uniq_colors = set(np.unique(matrix_colors))
@@ -157,13 +157,15 @@ def encodes_matrix(matrix_colors: list) -> tuple[list, dict]:
 
 def encodes_dict(lst_colors_coord: list, dict_colors: dict) -> dict:
     """
-
+    Creates a dictionary from the color number and its coordinates.
     Args:
-        lst_colors_coord:
-        dict_colors:
+        lst_colors_coord: dictionary, where the key is the name of the color,
+        and the value is the coordinates of the color.
+        dict_colors: a dictionary where the key is the name of the color
+        and the value is a digital representation of the color.
 
     Returns:
-        A dictionary where the key is a unique number for a color, the value is a color.
+        Dictionary where the key is the color number, the value is the color coordinates.
     """
     result = {}
     for key, value in lst_colors_coord.items():
@@ -178,12 +180,6 @@ def get_square_size_color_matrix():
     lst = marks_up_screenshot()
     x_origin, y_origin, half = get_coord(lst)
     nev, lst_colors_coord = get_matrix(x_origin, y_origin, half)
-    print(lst_colors_coord)
-    print('+++++')
     matrix, dict_colors = encodes_matrix(nev)
-    print(dict_colors)
-    print('************')
     lst_colors_coord = encodes_dict(lst_colors_coord, dict_colors)
-    print('------')
-    print(lst_colors_coord)
     return matrix, lst_colors_coord
